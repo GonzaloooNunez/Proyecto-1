@@ -1,0 +1,148 @@
+#link-container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#links-css {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  border: #5f5d5d solid;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+#link-h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+#form {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+}
+
+.form-group input[type="text"],
+#form button {
+  width: calc(100% - 10px);
+  padding: 5px;
+}
+
+#lista {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link-item {
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: inline-block;
+  box-sizing: border-box; /* Para incluir el padding y el border en el cálculo del ancho */
+}
+
+.link-item:last-child {
+  margin-right: 0;
+}
+
+.link-item h2 {
+  margin-top: 0;
+}
+
+.link-item a {
+  text-decoration: none;
+  color: #333;
+}
+
+.borrar-btn {
+  background-color: #5f5d5d;
+  color: #fff;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 20px;
+}
+
+/*  CONTRASEÑA  ====> */
+
+#contreseña-body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  border: #5f5d5d solid;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+#contraseña-h1 {
+  font-size: 19px;
+}
+
+#password {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+#botonContraseña {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 13px;
+  cursor: pointer;
+  width: 160px;
+  margin-left: 10px;
+  height: 50px;
+  margin-top: 20px;
+}
+
+/*  RELOJ DIGITAL  ====> */
+
+#relojDigital-body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#relojDigital {
+  border: 1px gray solid;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 20px;
+  border: #5f5d5d solid;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.92);
+}
+
+#reloj {
+  color: black solid;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+#fecha-reloj {
+  color: black solid;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  margin-top: -15px;
+}
+
+#mensaje-reloj {
+  color: black solid;
+  font-size: 1rem;
+}

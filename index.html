@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="link-container">
+      <div id="links-css">
+        <h1 id="link-h1">Añade tu página de interés</h1>
+        <form id="form">
+          <div class="form-group">
+            <input type="text" id="title" placeholder="Nombre del enlace" />
+          </div>
+          <div class="form-group">
+            <input type="text" id="url" placeholder="Pega aquí tu URL" />
+          </div>
+          <button type="submit">Añadir enlace</button>
+        </form>
+        <ul id="lista"></ul>
+      </div>
+    </div>
+
+    <div id="contreseña-body">
+      <div id="contraseña">
+        <h1 id="contraseña-h1">Crea tu propia contraseña segura!</h1>
+        <label id="label-contraseña" for="length">Número de caracteres de la contraseña:</label>
+        <input type="number" id="longitud" min="12" max="50" value="12" />
+        <button id="botonContraseña">Generar Contraseña</button>
+        <p id="passwordContainer" style="display: none">
+          Contraseña generada: <span id="password"></span>
+        </p>
+      </div>
+    </div>
+
+    <div id="relojDigital-body">
+      <div id="relojDigital">
+        <div id="reloj"></div>
+        <div id="fecha-reloj"></div>
+        <div id="mensaje-reloj"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
