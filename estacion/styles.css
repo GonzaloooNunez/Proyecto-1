@@ -1,0 +1,77 @@
+.cuerpo-estacion .container {
+  max-width: 500px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.container h1 {
+  text-align: left;
+  font-size: 16px;
+}
+
+.actual #tiempo {
+  font-size: 14px;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.actual #temperatura {
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: rgb(236, 173, 97);
+}
+
+#precipitaciones {
+  margin-right: 30px;
+  font-size: 13px;
+}
+
+#humedad {
+  margin-right: 30px;
+  font-size: 13px;
+}
+
+#viento {
+  font-size: 13px;
+}
+
+#icono-clima {
+  position: absolute;
+  top: 0px; /* Ajusta la posición vertical según necesites */
+  left: 180px; /* Ajusta la posición horizontal según necesites */
+  width: 100px;
+}
+
+.horas {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.hora {
+  display: inline-block;
+  width: 120px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hora p {
+  margin: 10px;
+}
+
+.hora img {
+  display: block;
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+}

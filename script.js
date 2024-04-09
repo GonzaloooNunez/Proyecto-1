@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const li = document.createElement("li");
       li.className = "link-item";
       const a = document.createElement("a");
+
       a.textContent = link.title;
       a.href = link.url;
       a.target = "_blank";
@@ -80,6 +81,7 @@ function setRandomBackground() {
   document.body.style.backgroundImage = `url('${randomImageUrl}')`;
   document.body.style.backgroundSize = "100% ";
   document.body.style.backgroundPosition = "center";
+  document.body.style.backgroundSize = "cover !important";
 }
 
 setRandomBackground();
@@ -90,7 +92,7 @@ setInterval(setRandomBackground, 15000);
 document.addEventListener("DOMContentLoaded", function () {
   const generarContraseña = document.getElementById("generarContraseña");
 
-  botonContraseña.addEventListener("click", function () { 
+  botonContraseña.addEventListener("click", function () {
     generatePassword();
   });
 });
@@ -130,11 +132,7 @@ function generatePassword() {
 
 // RELOJ DIGITAL ====>
 
-/* actualizar el reloj digital y el mensaje según la hora.
-Es llamada una vez al principio para inicializar el reloj y luego se establece un intervalo 1 segundo)
-para que la función se llame automáticamente y actualice el tiempo en el reloj.*/
-
-function updateTime() {
+function reloj() {
   const now = new Date();
   let hours = now.getHours();
   let minutes = now.getMinutes();
@@ -174,7 +172,8 @@ function updateTime() {
     message = "Buenas noches, es hora de pensar en parar y descansar";
   }
 
-  document.getElementById("mensaje-reloj").innerHTML = message;
+  let mensajeHora = document.getElementById("mensaje-reloj");
+  mensajeHora.innerHTML = message;
 }
 
 // Ponemos el 0 delante
@@ -186,5 +185,72 @@ function padZero(num) {
   return num;
 }
 
-updateTime();
-setInterval(updateTime, 1000);
+reloj();
+setInterval(reloj, 1000);
+
+// ESTACION METEOROLOGICA =====>
+
+const claveAPI = "5f7b1cfbd7c041cab34101351240504";
+const ciudad = "Valladolid";
+
+async function obtenerTiempoActual() {
+  try {
+    const respuesta = await fetch(
+      `http://api.weatherapi.com/v1/current.json?key=${claveAPI}&q=${ciudad}`
+    );
+    const datos = await respuesta.json();
+
+    document.getElementById("ciudad").textContent = datos.location.name;
+    document.getElementById("pais").textContent = datos.location.country;
+    document.getElementById("tiempo").textContent =
+      datos.current.condition.text;
+    document.getElementById("temperatura").textContent = datos.current.temp_c;
+    document.getElementById("precipitaciones").textContent =
+      datos.current.precip_mm + " mm";
+    document.getElementById("humedad").textContent =
+      datos.current.humidity + " %";
+    document.getElementById("viento").textContent =
+      datos.current.wind_kph + " km/h";
+    document.getElementById("icono-clima").src = datos.current.condition.icon;
+  } catch (error) {
+    console.error("Error al obtener los datos del clima:", error);
+  }
+}
+
+async function pronosticoHora() {
+  try {
+    const respuesta = await fetch(
+      `http://api.weatherapi.com/v1/forecast.json?key=${claveAPI}&q=${ciudad}&days=1`
+    );
+    const datos = await respuesta.json();
+    const pronosticoPorHora = datos.forecast.forecastday[0].hour.slice(0, 12); // las primeras 12 horas
+
+    const contenedorPronosticoHora = document.getElementById(
+      "pronostico-por-hora"
+    );
+    contenedorPronosticoHora.innerHTML = "";
+
+    pronosticoPorHora.forEach((hora) => {
+      const elementosHora = document.createElement("div");
+      elementosHora.classList.add("hora");
+
+      const horaFormateada = new Date(
+        hora.time_epoch * 1000
+      ).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      elementosHora.innerHTML = `
+        <p>${horaFormateada}</p>
+        <img src="${hora.condition.icon}" alt="${hora.condition.text}">
+        <p>${hora.temp_c}°C</p>
+      `;
+
+      contenedorPronosticoHora.appendChild(elementosHora);
+    });
+  } catch (error) {
+    console.error("Error al obtener el pronóstico por hora:", error);
+  }
+}
+
+window.onload = function () {
+  obtenerTiempoActual();
+  pronosticoHora();
+};
