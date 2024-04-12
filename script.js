@@ -108,23 +108,33 @@ function generatePassword() {
     alert("La longitud de la contraseña debe estar entre 12 y 50 caracteres.");
     return;
   }
+  // le aseguramos uno de cada y luego le restamos 4 para que concuerde con el numero que queremos
+  password += mayusculas[Math.floor(Math.random() * mayusculas.length)];
+  password += minusculas[Math.floor(Math.random() * minusculas.length)];
+  password += nums[Math.floor(Math.random() * nums.length)];
+  password += simbolos[Math.floor(Math.random() * simbolos.length)];
 
-  if (longitud > 0) {
-    mix += mayusculas;
-    mix += minusculas;
-    mix += nums;
-    mix += simbolos;
+  const longitud_2 = longitud - 4;
 
-    for (let i = 0; i < longitud; i++) {
-      const randomIndex = Math.floor(Math.random() * mix.length);
-      password += mix[randomIndex];
-    }
+  mix += mayusculas;
+  mix += minusculas;
+  mix += nums;
+  mix += simbolos;
 
-    const passwordContainer = document.getElementById("passwordContainer");
-    const passwordElement = document.getElementById("password");
-    passwordElement.textContent = password;
-    passwordContainer.style.display = "block";
+  for (let i = 0; i < longitud_2; i++) {
+    const randomIndex = Math.floor(Math.random() * mix.length);
+    password += mix[randomIndex];
   }
+
+  password = password
+    .split("")
+    .sort(() => Math.random() - 0.5)
+    .join("");
+
+  const passwordContainer = document.getElementById("passwordContainer");
+  const passwordElement = document.getElementById("password");
+  passwordElement.textContent = password;
+  passwordContainer.style.display = "block";
 }
 
 // RELOJ DIGITAL ====>
@@ -138,7 +148,7 @@ function reloj() {
   let month = now.getMonth() + 1;
   let year = now.getFullYear();
 
-  // Añadir ceros delante si son menores que 10
+  // añadimos ceros delante si son menores que 10
   hours = padZero(hours);
   minutes = padZero(minutes);
   seconds = padZero(seconds);
@@ -173,7 +183,7 @@ function reloj() {
   mensajeHora.innerHTML = message;
 }
 
-// Ponemos el 0 delante
+// ponemos el 0 delante
 
 function padZero(num) {
   if (num < 10) {
@@ -247,7 +257,5 @@ async function pronosticoHora() {
   }
 }
 
-window.onload = function () {
-  obtenerTiempoActual();
-  pronosticoHora();
-};
+obtenerTiempoActual();
+pronosticoHora();
