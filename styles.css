@@ -140,9 +140,81 @@ body {
   cursor: pointer;
   width: 160px;
   margin-left: 10px;
-  height: 50px;
+  height: 40px;
   margin-top: 20px;
+
+  border: none;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+  transition-duration: 02s;
+  overflow: hidden;
 }
+
+/*#botonContraseña:hover {
+  background-color: #45a049;
+}
+
+#botonContraseña:before {
+  content: "";
+  background: rgba(0, 0, 0, 0);
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0%;
+  width: 150%;
+  height: 100%;
+  transition: all 2s;
+}
+
+#botonContraseña:hover:before {
+  left: 125%;
+}*/
+
+/*#botonContraseña {
+  position: relative; 
+  overflow: hidden;  
+}
+
+#botonContraseña::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    red,
+    blue,
+    deeppink,
+    blue,
+    green,
+    red,
+    deeppink,
+    blue
+  );
+  background-size: 800%;
+  border-radius: 10px;
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}*/
 
 /*  RELOJ DIGITAL  ====> */
 
