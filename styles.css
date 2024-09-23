@@ -1,6 +1,11 @@
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   background-size: 100vw 100vh;
 }
+
+/* Estilo original para pantallas grandes */
 
 #link-container {
   width: 400px;
@@ -22,7 +27,7 @@ body {
   font-size: 18px;
   font-weight: 400;
   text-align: center;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   margin: 0 0 25px;
   overflow: hidden;
   padding: 20px;
@@ -111,7 +116,7 @@ body {
   font-size: 18px;
   font-weight: 400;
   text-align: center;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   margin: 0 0 25px;
   overflow: hidden;
   padding: 20px;
@@ -142,7 +147,6 @@ body {
   margin-left: 10px;
   height: 40px;
   margin-top: 20px;
-
   border: none;
   color: black;
   text-align: center;
@@ -152,69 +156,6 @@ body {
   transition-duration: 02s;
   overflow: hidden;
 }
-
-/*#botonContraseña:hover {
-  background-color: #45a049;
-}
-
-#botonContraseña:before {
-  content: "";
-  background: rgba(0, 0, 0, 0);
-  display: block;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0%;
-  width: 150%;
-  height: 100%;
-  transition: all 2s;
-}
-
-#botonContraseña:hover:before {
-  left: 125%;
-}*/
-
-/*#botonContraseña {
-  position: relative; 
-  overflow: hidden;  
-}
-
-#botonContraseña::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    red,
-    blue,
-    deeppink,
-    blue,
-    green,
-    red,
-    deeppink,
-    blue
-  );
-  background-size: 800%;
-  border-radius: 10px;
-  filter: blur(8px);
-  animation: glowing 20s linear infinite;
-}
-
-@keyframes glowing {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}*/
 
 /*  RELOJ DIGITAL  ====> */
 
@@ -232,14 +173,16 @@ body {
 }
 
 #reloj {
-  color: whitesmoke;
+  color: rgb(0, 0, 0);
   font-size: 3rem;
   margin-bottom: 20px;
   margin: center;
+
+  padding: -30px;
 }
 
 #fecha-reloj {
-  color: whitesmoke;
+  color: rgb(44, 53, 4);
   font-size: 1.5rem;
   margin-bottom: 20px;
   margin-top: -15px;
@@ -248,7 +191,7 @@ body {
 #mensaje-reloj {
   color: whitesmoke;
   font-size: 1rem;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 25px;
   width: 400px;
   height: 20px;
@@ -260,7 +203,6 @@ body {
   max-width: 500px;
   margin: 20px auto;
   padding: 20px;
-
   border-radius: 25px;
   position: absolute;
   top: 100px;
@@ -270,7 +212,7 @@ body {
   font-size: 18px;
   font-weight: 400;
   text-align: center;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.6);
   margin: 0 0 25px;
   overflow: hidden;
   padding: 20px;
@@ -376,8 +318,68 @@ body {
   top: 550px;
   left: 1430px;
 }
+
 .lista-img {
   position: absolute;
   top: 550px;
   left: 1330px;
+}
+@media (max-width: 1500px) {
+  body {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+
+  #main-container,
+  #links-css {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+  }
+
+  #link-container,
+  #links-css,
+  #contreseña-body,
+  #relojDigital-body,
+  .cuerpo-estacion .container {
+    padding: 3px;
+    width: 400px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    top: auto;
+    left: auto;
+    max-height: 70vh;
+  }
+
+  #links-css,
+  #contraseña-h1 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  #lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #lista .link-item {
+    width: calc(100% - 20px);
+    margin: 10px 0;
+  }
+
+  .nube-img,
+  .candado-img,
+  .reloj-img,
+  .lista-img,
+  #icono-clima {
+    display: none;
+  }
 }
